@@ -1,0 +1,346 @@
+/** Google Fonts **/
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,600i,700,700i,800');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:200,300,300i,400,400i,500,500i,600,600i,700,700i,800');
+
+body {
+    font-family: 'Open Sans', sans-serif!important;
+    font-size: 12px!important;
+    background: url('../img/bg.jpg')!important;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+header {
+    background-color: #fff;
+    width: 100%;
+    text-align: center;
+}
+
+header img {
+    width: 15%;
+}
+
+.logo {
+    width: 70%;
+}
+
+.nav-link {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    padding-top: 1.5rem!important;
+    color: rgba(0, 0, 0, 1);
+    transition: 0.25s ease-in-out;
+}
+
+.nav-link:hover {
+    color: rgba(0, 0, 0, 0.5);
+    text-decoration: none;
+}
+
+main {
+    width: 100%;
+}
+
+table {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0 auto;
+}
+
+table th {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #abe500;
+}
+
+table td {
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 1.0);
+}
+
+.row {
+    margin-left: 0px!important;
+    margin-right: 0px!important;
+}
+
+/** Navigation **/
+
+nav {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    color: #fff;
+    text-transform: uppercase;
+    width: 90%;
+    margin: 0 auto;
+    background: #abe500;
+    padding: 15px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0!important;
+    margin: 0!important;
+}
+
+ul li {
+    display: inline-block;
+}
+
+ul li a {
+    color: rgba(255, 255, 255, 1.0);
+    padding-top: 25px;
+    padding-bottom: 25px;
+    padding-right: 25px;
+    padding-left: 25px;
+    transition: 0.25s ease-in-out;
+}
+
+ul li a:hover {
+    color: rgba(255, 255, 255, 0.75);
+    background-color: rgba(171, 229, 0, 0.75);
+    text-decoration: none;
+}
+
+/** Typography **/
+h1 {
+    font-family: 'Montserrat', sans-serif!important;
+    font-size: 5rem!important;
+    font-weight: 300!important;
+}
+
+h1 a:hover {
+    color: rgba(171, 229, 0, 0.75);
+    text-decoration: none;
+}
+
+h2 {
+    font-family: 'Montserrat', sans-serif!important;
+    font-size: 3rem!important;
+    font-weight: 300!important;
+}
+
+h3 {
+    font-family: 'Montserrat', sans-serif!important;
+    font-size: 2rem!important;
+    font-weight: 300!important;
+}
+
+h3 a {
+    color: rgba(255, 255, 255, 1); 
+}
+
+h3 a:hover {
+    color: rgba(171, 229, 0, 0.75);
+    text-decoration: none;
+}
+
+/** Index Login Text CSS **/
+
+.login {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 2rem;
+    text-align: center;
+    color: #fff;
+    margin-top: 15%;
+}
+
+.login a {
+    color: #fff;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: 0.25s ease-in-out;
+}
+
+.login a:hover {
+    color: #abe500;
+    text-decoration: none;
+}
+
+#admin {
+    font-size: 10rem;
+}
+
+#employee {
+    font-size: 5rem;
+    font-weight: 400;
+}
+
+/** Login Form CSS **/
+
+.login-form {
+    background-color: #fff;
+    border-radius: 2px;
+    margin-top: 15%;
+    padding: 25px;
+    text-align: center;
+}
+
+.login-form h1 {
+    font-family: 'Montserrat', sans-serif!important;
+    font-weight: 400;
+    font-size: 3rem;
+    padding: 10px;
+}
+
+.login-form label {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    width: 100%;
+    display: block;
+}
+
+.login-form input[type=text], .login-form input[type=password] {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 300;
+    display: block;
+    padding: 10px;
+    margin: 0 auto;
+    width: 75%;
+    transition: 0.25s ease-in-out;
+}
+
+.login-form input[type=text]:hover, .login-form input[type=password]:hover, .login-form input[type=text]:focus, .login-form input[type=password]:focus {
+    transform: scale(1.02);
+}
+
+.login-form input[type=submit] {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 300;
+    border: none;
+    background: rgba(48, 51, 107,1.0);
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    width: 50%;
+    cursor: pointer;
+    transition: 0.25s ease-in-out;
+}
+
+.login-form input[type=submit]:hover {
+    background: rgba(48, 51, 107,0.75);
+}
+
+.link {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    text-align: left;
+    color: rgba(255, 255, 255, 1.0);
+    transition: 0.25s ease-in-out;
+}
+
+.link:hover {
+    transform: sclae(1.05);
+    color: rgba(171, 229, 0, 1.0);
+    text-decoration: none;
+}
+
+/** Form CSS **/
+
+.form {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    width: 100%;
+}
+
+.form label {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 1.0);
+    text-align: left;
+    width: 25%;
+    display: inline-block;
+}
+
+.form input[type=text], .form input[type=password], .form textarea {
+    color: rgba(0, 0, 0, 0.5);
+    width: 60%;
+    margin: 10px;
+    display: inline-block;
+}
+
+.form input[type=submit], .form input[type=reset] {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 300;
+    border: none;
+    background: rgba(171, 229, 0, 1.0);
+    color: #fff;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    width: 47%;
+    cursor: pointer;
+    transition: 0.25s ease-in-out;
+}
+
+.form input[type=submit]:hover, .form input[type=reset]:hover {
+    background: rgba(171, 229, 0, 0.75);
+}
+
+.form .link-btn input[type=submit] {
+    background: none;
+    color: rgba(255, 255, 255, 1.0);
+    font-size: 2rem;
+    transition: 0.25s ease-in-out;
+}
+
+.form .link-btn input[type=submit] {
+    background: none;
+    color: rgba(171, 229, 0, 1.0);
+}
+
+/** Buttons CSS **/
+
+.btn {
+    width: 50%!important;
+}
+
+.btn-success {
+    background-color: rgba(171, 229, 0, 1.0)!important;
+    border: 1px solid rgba(171, 229, 0, 1.0)!important;
+    border-radius: none!important;
+    margin: 0 auto;
+}
+
+.btn-success:hover {
+    background-color: rgba(171, 229, 0, 0.75)!important;
+}
+
+
+/** Footer CSS **/
+
+footer {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+    width: 100%;
+    height: 60px;
+    padding: 10px;
+    bottom: 0;
+    background-color: rgba(48, 51, 107,1.0);
+}
+
+.white {
+    color: #ffffff!important;
+}
+
+.green {
+    color: #abe500!important;
+}
+
+.red {
+    color: rgba(235, 77, 75,1.0)!important;
+}
+
+.center {
+    text-align: center;
+}
