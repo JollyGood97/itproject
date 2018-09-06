@@ -21,10 +21,11 @@
 			<div style = "float: right; margin-right: 25px; margin-top: 5px;"><a href = "logout.jsp" style = " text-decoration: none; font-size: 50px; color: black;">LOGOUT</a></div>
 		</div>
 		<div id = "hd2s2">
-			<a href = "leave.jsp" style = " text-decoration: none; font-size: 45px; color: white;">Leave_request</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<a href = "t_send_notice.jsp" style = " text-decoration: none; font-size: 45px; color: white;">Send Notice</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<a href = "view_notice_tec.jsp" style = " text-decoration: none; font-size: 45px; color: white;">View_Notice</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	</div>
+			<a href = "leave.jsp" style = " text-decoration: none; font-size: 35px; color: white;">Leave_request</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<a href = "t_send_notice.jsp" style = " text-decoration: none; font-size: 35px; color: white;">Send Notice</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<a href = "view_notice_tec.jsp" style = " text-decoration: none; font-size: 35px; color: white;">View_Notice</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<a href = "leave_notification.jsp" style = " text-decoration: none; font-size: 35px; color: white;">Leave_notification</a>
+		</div>
 		<div id = "hd2s3"><h1 style = "color: #b0e24a">Leave Request Form</h1></div>
 	</div>
 	<br/>
@@ -78,7 +79,7 @@
 		String xcdate = df.format(cdate);	
 		String xrdate = df.format(rdate);
 		Class.forName("com.mysql.jdbc.Driver"); 
-		java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost/itp", "root", ""); 
+		java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost/schoolmanagement", "root", ""); 
 		Statement st= con.createStatement(); 
 		ResultSet rs;  
 	

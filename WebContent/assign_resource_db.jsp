@@ -23,11 +23,10 @@
 			<div style = "float: right; margin-right: 25px; margin-top: 5px;"><a href = "logout.jsp" style = " text-decoration: none; font-size: 50px; color: black;">LOGOUT</a></div>
 		</div>
 		<div id = "hd2s2">
-			<a href = "logout.jsp" style = " text-decoration: none; font-size: 50px; color: white;">Admins</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<a href = "logout.jsp" style = " text-decoration: none; font-size: 50px; color: white;">Teachers</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<a href = "logout.jsp" style = " text-decoration: none; font-size: 50px; color: white;">Students</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<a href = "logout.jsp" style = " text-decoration: none; font-size: 50px; color: white;">Staffs</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<a href = "logout.jsp" style = " text-decoration: none; font-size: 50px; color: white;">Parents</a>
+			<a href = "all_lv_req.jsp" style = " text-decoration: none; font-size: 30px; color: white;">View all leave request</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<a href = "notice.jsp" style = " text-decoration: none; font-size: 30px; color: white;">Send Notice</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<a href = "resource_manager.jsp" style = " text-decoration: none; font-size: 30px; color: white;">Resource Manager</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<a href = "Calculate_Salary.jsp" style = " text-decoration: none; font-size: 30px; color: white;">Calculate_Salary</a>
 		</div>
 		<div id = "hd2s3"><h1 style = "color: #ACE500">Select a resource and delete it</h1></div>
 		
@@ -81,19 +80,19 @@
 		String cid = request.getParameter("class");
 			
 		Class.forName("com.mysql.jdbc.Driver"); 
-		java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost/itp", "root", ""); 
+		java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost/schoolmanagement", "root", ""); 
 		
 		Statement st5= con.createStatement(); 
-		ResultSet rs5 = st5.executeQuery("select * from teacher where id ='"+tid+"'");
+		ResultSet rs5 = st5.executeQuery("select * from teacher where tid ='"+tid+"'");
 		
 		Statement st= con.createStatement(); 
 		ResultSet rs = st.executeQuery("select * from teacher_position where workid ='"+wid+"'");
 		
 		Statement st1 = con.createStatement();
-		ResultSet rs1 = st1.executeQuery("select * from teacher_position where teacherid ='"+tid+"' AND position = 'Sectional_head'");
+		ResultSet rs1 = st1.executeQuery("select * from teacher_position where tid ='"+tid+"' AND position = 'Sectional_head'");
 		
 		Statement st2 = con.createStatement();
-		ResultSet rs2 = st2.executeQuery("select * from teacher_position where teacherid ='"+tid+"' AND position = 'Class_teacher'");
+		ResultSet rs2 = st2.executeQuery("select * from teacher_position where tid ='"+tid+"' AND position = 'Class_teacher'");
 		
 		Statement st3 = con.createStatement();
 		ResultSet rs3 = st3.executeQuery("select * from teacher_position where classid = '"+cid+"' AND position ='class_teacher' AND sectionid = '"+sid+"'");
@@ -107,7 +106,7 @@
 					if(!rs2.next()){
 						if(!rs3.next()){
 							if(!rs4.next()){
-								int x = st.executeUpdate("insert into teacher_position (`workid`, `teacherid`, `position`, `sectionid`, `classid`) values ('"+wid+"','"+tid+"', '"+pos+"', '"+sid+"', '"+cid+"')");	
+								int x = st.executeUpdate("insert into teacher_position (`workid`, `tid`, `position`, `sectionid`, `classid`) values ('"+wid+"','"+tid+"', '"+pos+"', '"+sid+"', '"+cid+"')");	
 								out.println("<h3 class = 'green_correct'>Teachers resources added successfully</h3>");
 								%><a href = "assign_resource.jsp">back</a><%
 							}

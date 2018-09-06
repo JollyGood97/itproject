@@ -4,13 +4,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>All Resource</title>
+<title>Update Resource</title>
 <link rel="stylesheet" href="assests/css/style.css"> 
 </head>
 <body>
-
-
-<!-- Header section start -->
+	
+<!-- Header section end -->
 <header>
 	<div id = "hd1">
 		<div id = "hds1"><img src="assests/image/icon.png" height = "80" width = "80">
@@ -28,13 +27,12 @@
 			<a href = "resource_manager.jsp" style = " text-decoration: none; font-size: 30px; color: white;">Resource Manager</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			<a href = "Calculate_Salary.jsp" style = " text-decoration: none; font-size: 30px; color: white;">Calculate_Salary</a>
 		</div>
-		<div id = "hd2s3"><h1 style = "color: #ACE500">Select a resource and delete it</h1></div>
+		<div id = "hd2s3"><h1 style = "color: #ACE500">Update A Resource</h1></div>
 		
 	</div>
 	
 </header>
 <!-- Header section end -->
-
 
 
 <!-- Mid section start -->
@@ -70,43 +68,74 @@
 		<br/>
 		<br/>
 		<br/>
-		<%@ page import="java.sql.*"%>
-<%@ page import="javax.sql.*"%>
-<%
-	Class.forName("com.mysql.jdbc.Driver"); 
-	java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost/schoolmanagement", "root", ""); 
-	Statement st= con.createStatement();
-	ResultSet rs=st.executeQuery("select * from `teacher_position`");
-	
-	String wid, tid, pos, secid, classid;
-	
-	while(rs.next()) {
-		wid = rs.getString(1);
-		tid = rs.getString(2);
-		pos = rs.getString(3);
-		secid = rs.getString(4);
-		classid = rs.getString(5);
+	<%@ page import="java.sql.*"%>
+	<%@ page import="javax.sql.*"%>
+	<%	
+		String wid = (String)session.getAttribute("wid");
+		String tid = request.getParameter("tid");
+		String pos = request.getParameter("pos");
+		String sid = request.getParameter("sec");
+		String cid = request.getParameter("class");
+			
+		Class.forName("com.mysql.jdbc.Driver"); 
+		java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost/schoolmanagement", "root", ""); 
 		
-		%>
-			<h3>Work_Id : <% out.println(wid); %></h3>
-			<h3>Teacher's_Id : <% out.println(tid); %></h3>
-			<h3>Position : <% out.println(pos); %></h3>
-			<h3>Section_Id : <% out.println(secid); %></h3>
-			<h3>Class_Id : <% out.println(classid); %></h3>
-			<a href="delete_res_db.jsp?wid=<%=wid%>" style = "color: #28A4D8; text-decoration: none; font-size: 20px;">Delete</a>
-			<hr/>
-		<%
+		Statement st5= con.createStatement(); 
+		ResultSet rs5 = st5.executeQuery("select * from teacher where tid ='"+tid+"'");
 		
-	}
-%>
+		Statement st= con.createStatement(); 
+		
+		Statement st1 = con.createStatement();
+		ResultSet rs1 = st1.executeQuery("select * from teacher_position where tid ='"+tid+"' AND position = 'Sectional_head'");
+		
+		Statement st2 = con.createStatement();
+		ResultSet rs2 = st2.executeQuery("select * from teacher_position where tid ='"+tid+"' AND position = 'Class_teacher'");
+		
+		Statement st3 = con.createStatement();
+		ResultSet rs3 = st3.executeQuery("select * from teacher_position where classid = '"+cid+"' AND position ='class_teacher' AND sectionid = '"+sid+"'");
+		
+		Statement st4 = con.createStatement();
+		ResultSet rs4 = st4.executeQuery("select * from teacher_position where position ='Sectional_head' AND sectionid = '"+sid+"' AND classid = 'classAll'");
+		
+		if(rs5.next()){
+			
+				if(!rs1.next()){
+					if(!rs2.next()){
+						if(!rs3.next()){
+							if(!rs4.next()){
+								int i = st.executeUpdate("update teacher_position set `tid` = '"+tid+"', `position` = '"+pos+"', `sectionid` = '"+sid+"', `classid` = '"+cid+"' where `workid` = '"+wid+"'");	
+								out.println("<h3 class = 'green_correct'>Teachers resources updated successfully</h3>");
+								%><a href = "Update_resource.jsp">back</a><%
+							}
+							else{
+								out.println("<h3 class = 'red_wrong'>Warning : There is a sectional head for this particular section</h3>");
+								%><a href = "Update_resource.jsp">back</a><%
+							}
+						}
+						else{
+							out.println("<h3 class = 'red_wrong'>Warning : There is a class teacher for this particular class</h3>");
+							%><a href = "Update_resource.jsp">back</a><%
+						}
+					}
+					else{
+						out.println("<h3 class = 'red_wrong'>Warning : The teacher is already a class teacher</h3>");
+						%><a href = "Update_resource.jsp">back</a><%
+					}
+				}
+				else{
+					out.println("<h3 class = 'red_wrong'>Warning : The teacher is already a sectional head</h3>");
+					%><a href = "Update_resource.jsp">back</a><%
+				}
+			}
+			else{
+			out.println("<h3 class = 'red_wrong'>Warning : Teacher id is incorrect</h3>");
+			%><a href = "Update_resource.jsp">back</a><%
+		}
+	%>
 	</div>
 </div>
 <!-- Mid section end -->
-
-
-
-
 	
-
+	
 </body>
 </html>

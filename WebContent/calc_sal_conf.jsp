@@ -78,12 +78,12 @@
 		int att = 0;
 		
 		Class.forName("com.mysql.jdbc.Driver"); 
-		java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost/itp", "root", ""); 
+		java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost/schoolmanagement", "root", ""); 
 		Statement st= con.createStatement(); 
 		Statement st1= con.createStatement();
 		Statement st2= con.createStatement();
 		Statement st3= con.createStatement();
-		ResultSet rs = st.executeQuery("select * from `teacher` where `id` = '" + tid + "'");
+		ResultSet rs = st.executeQuery("select * from `teacher` where `tid` = '" + tid + "'");
 		ResultSet rs1 = st1.executeQuery("select * from `salary` where `tid` = '" + tid + "' and `year` = '"+ year +"' and `month` = '"+ month +"' and Status = 'notify'");
 		
 		if(rs.next()){
@@ -114,7 +114,7 @@
 		else{
 			%>
 			<h2 class = "red_wrong">The teacher id is invalid</h2>
-			<a href = "Calculate_Salary.jsp">Calculate_Salary</a>
+			<a href = "Calculate_Salary.jsp">back</a>
 			<%
 		}
 		%>
